@@ -1,9 +1,10 @@
 package org.novawar.racetrack.web;           
 
+import org.apache.wicket.Application;
 import org.apache.wicket.markup.html.WebPage;
 import org.apache.wicket.model.IModel;
 import org.apache.wicket.markup.html.resources.StyleSheetReference;
-import org.apache.wicket.util.string.Strings;
+import org.novawar.racetrack.service.RaceTrackService;
 
 /** 
  *
@@ -25,5 +26,9 @@ public abstract class BasePage extends WebPage {
     public BasePage(IModel model) {
         super(model);
         add(new StyleSheetReference("stylesheet", BasePage.class, "style.css"));
+    }
+
+    public RaceTrackService getService() {
+        return ((RaceTrackApplication)Application.get()).getService();
     }
 }
