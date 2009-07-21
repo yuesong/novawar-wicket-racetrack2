@@ -1,7 +1,7 @@
 body, table, a {
     font-family: 'Helvetica', 'Sans-serif', 'sans';
     font-size: 14px;
-    color: #6F6F6F;
+    color: black;
     line-height: 150%;
 }
 
@@ -20,7 +20,8 @@ h1,h2,h3,h4,h5,h6,h7,h8 {
 .dataTable th {
     background-color: #6f6f6f;
     color: white;
-    padding: 2px 10px;
+    padding: 0px 10px;
+    height: 25px;
 }
 
 .dataTable th a {
@@ -56,22 +57,57 @@ h1,h2,h3,h4,h5,h6,h7,h8 {
 }
 
 /* Registration List */
-td.id {
+.registractionList td.id {
     text-align: center;
 }
 
-td.name {
+.registractionList td.name {
     width: 120px;
 }
 
-td.email {
+.registractionList td.email {
     width: 250px;
 }
 
-td.dateOfBirth {
+.registractionList td.dateOfBirth {
+    width: 100px;
+    text-align: center;
+}
+
+.registractionList td.createdAt {
+    width: 100px;
+    text-align: center;
+}
+
+/* Race List */
+.raceList td.id {
+    text-align: center;
+}
+
+.raceList td.name {
+    width: 150px;
+}
+
+.raceList td.city {
     width: 100px;
 }
 
-td.createdAt {
+.raceList td.cost {
+    width: 50px;
+    text-align: right;
+}
+
+.raceList td.distance {
+    width: 70px;
+    text-align: right;
+}
+
+.raceList td.maxRunners {
     width: 100px;
+    text-align: right;
+}
+
+.raceList td.startDateTime {
+    width: 150px;
+    text-align: center;
 }
