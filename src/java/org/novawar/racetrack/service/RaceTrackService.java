@@ -25,7 +25,7 @@ public interface RaceTrackService {
      *
      * @param first
      * @param count
-     * @param filter
+     * @param filter May be <code>null</code>, which means all races.
      * @param orderBy
      * @return
      */
@@ -34,9 +34,10 @@ public interface RaceTrackService {
     /**
      * Gets the total number of Races.
      *
+     * @param filter May be <code>null</code>, which means all races.
      * @return
      */
-    int getRaceCount();
+    int getRaceCount(Filter filter);
 
     /**
      * Gets a Registration by ID.

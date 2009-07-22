@@ -39,8 +39,8 @@ public class RaceTrackServiceImpl implements RaceTrackService {
         return getFilteredOrderedSubList(races, filter, orderBy, first, count);
     }
 
-    public int getRaceCount() {
-        return races.size();
+    public int getRaceCount(Filter filter) {
+        return filter == null ? races.size() : filter.filter(races).size();
     }
 
     public Registration getRegistration(Long id) {
