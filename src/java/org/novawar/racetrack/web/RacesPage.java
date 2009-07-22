@@ -19,16 +19,16 @@ public final class RacesPage extends BasePage {
 
     public RacesPage() {
         super ();
-        List<IColumn<?>> columns = new ArrayList<IColumn<?>>(7);
-        columns.add(new DefaultPropertyColumn<Long>("id"));
-        columns.add(new DefaultPropertyColumn<String>("name"));
-        columns.add(new DefaultPropertyColumn<String>("city"));
-        columns.add(new DefaultPropertyColumn<String>("state"));
-        columns.add(new NumberPropertyColumn<Double>("cost", "$#0.00"));
-        columns.add(new NumberPropertyColumn<Double>("distance", "#0.00"));
-        columns.add(new NumberPropertyColumn<Integer>("maxRunners", "#,###"));
-        columns.add(new DatePropertyColumn("startDateTime", "yyyy-MM-dd HH:mm"));
-        add(new DefaultDataTable("dataTable", columns, new RaceDataProvider(), 10));
+        List<IColumn<Race>> columns = new ArrayList<IColumn<Race>>(7);
+        columns.add(new DefaultPropertyColumn<Race>("id"));
+        columns.add(new DefaultPropertyColumn<Race>("name"));
+        columns.add(new DefaultPropertyColumn<Race>("city"));
+        columns.add(new DefaultPropertyColumn<Race>("state"));
+        columns.add(new NumberPropertyColumn<Race>("cost", "$#0.00"));
+        columns.add(new NumberPropertyColumn<Race>("distance", "#0.00"));
+        columns.add(new NumberPropertyColumn<Race>("maxRunners", "#,###"));
+        columns.add(new DatePropertyColumn<Race>("startDateTime", "yyyy-MM-dd HH:mm"));
+        add(new DefaultDataTable<Race>("dataTable", columns, new RaceDataProvider(), 10));
     }
 
     private class RaceDataProvider extends SortableDataProvider<Race> {
