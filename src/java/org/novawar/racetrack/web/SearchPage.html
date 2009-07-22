@@ -8,6 +8,12 @@
   <body>
     <wicket:extend>
       <h2>Search</h2>
+      <form wicket:id="form">
+        <label for="state">State:</label>
+        <input type="text" wicket:id="state" id="state"/><br/>
+        <input type="submit" value="Search"/>
+      </form>
+      <table wicket:id="dataTable" class="dataTable raceList"></table>
     </wicket:extend>
   </body>
 </html>
