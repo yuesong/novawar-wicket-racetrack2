@@ -1,4 +1,4 @@
-package org.novawar.racetrack.web;
+package org.novawar.racetrack.web.component;
 
 import java.text.DecimalFormat;
 

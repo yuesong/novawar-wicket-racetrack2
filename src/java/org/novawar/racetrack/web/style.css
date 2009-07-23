@@ -40,6 +40,15 @@ h1,h2,h3,h4,h5,h6,h7,h8 {
     padding: 0 10px;
 }
 
+ul.fields {
+    list-style: none;
+}
+
+ul.fields li label {
+    display: inline-block;
+    width: 150px;
+}
+
 #navigation {
     float: left;
     width: 120px;

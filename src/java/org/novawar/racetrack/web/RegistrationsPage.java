@@ -1,5 +1,7 @@
 package org.novawar.racetrack.web;
 
+import org.novawar.racetrack.web.component.DefaultPropertyColumn;
+import org.novawar.racetrack.web.component.DatePropertyColumn;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;

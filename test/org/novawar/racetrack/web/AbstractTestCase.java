@@ -1,7 +1,8 @@
 package org.novawar.racetrack.web;
 
 import org.apache.wicket.util.tester.WicketTester;
-import org.junit.BeforeClass;
+import org.junit.Before;
+import org.novawar.racetrack.service.RaceTrackService;
 
 /**
  *
@@ -9,10 +10,14 @@ import org.junit.BeforeClass;
  */
 public class AbstractTestCase {
 
-    protected static WicketTester tester;
+    protected WicketTester tester;
 
-    @BeforeClass
-    public static void setUpClass() throws Exception {
+    @Before
+    public void setUp() throws Exception {
         tester = new WicketTester(new RaceTrackApplication());
+    }
+
+    protected RaceTrackService getService() {
+        return ((RaceTrackApplication)tester.getApplication()).getService();
     }
 }

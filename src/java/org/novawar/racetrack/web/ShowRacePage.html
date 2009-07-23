@@ -1,0 +1,52 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <wicket:head>
+      <title>Show Race</title>
+    </wicket:head>
+  </head>
+  <body>
+    <wicket:extend>
+      <h2>Show Race</h2>
+      <div wicket:id="feedback"></div>
+        <ul class="fields">
+          <li>
+            <label for="name">Name</label>
+            <span wicket:id="name"/>
+          </li>
+          <li>
+            <label for="city">City</label>
+            <span wicket:id="city"/>
+          </li>
+          <li>
+            <label for="state">State</label>
+            <span wicket:id="state"/>
+          </li>
+          <li>
+            <label for="cost">Cost</label>
+            <span wicket:id="cost"/>
+          </li>
+          <li>
+            <label for="distance">Distance</label>
+            <span wicket:id="distance"/>
+          </li>
+          <li>
+            <label for="maxRunners">Max Runners</label>
+            <span wicket:id="maxRunners"/>
+          </li>
+          <li>
+            <label>Start Date and Time</label>
+            <span wicket:id="startDateTime"/>
+          </li>
+          <li>
+            <label>Registrations</label>
+            <ul>
+              <li wicket:id="registrations">
+                <span wicket:id="name"/>: <span wicket:id="email"/>
+              </li>
+            </ul>
+          </li>
+        </ul>
+    </wicket:extend>
+  </body>
+</html>

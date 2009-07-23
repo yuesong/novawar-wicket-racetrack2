@@ -1,4 +1,4 @@
-package org.novawar.racetrack.web;
+package org.novawar.racetrack.web.component;
 
 import org.apache.wicket.extensions.markup.html.repeater.data.table.PropertyColumn;
 import org.apache.wicket.model.ResourceModel;

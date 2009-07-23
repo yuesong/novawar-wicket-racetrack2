@@ -1,0 +1,48 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <wicket:head>
+      <title>Create Race</title>
+    </wicket:head>
+  </head>
+  <body>
+    <wicket:extend>
+      <h2>Create Race</h2>
+      <div wicket:id="feedback">[feedback]</div>
+      <form wicket:id="form">
+        <ul class="fields">
+          <li>
+            <label for="name">Name</label>
+            <input type="text" wicket:id="name" id="name"/>
+          </li>
+          <li>
+            <label for="city">City</label>
+            <input type="text" wicket:id="city" id="city"/>
+          </li>
+          <li>
+            <label for="state">State</label>
+            <select wicket:id="state" id="state"/>
+          </li>
+          <li>
+            <label for="cost">Cost</label>
+            <input type="text" wicket:id="cost" id="cost"/>
+          </li>
+          <li>
+            <label for="distance">Distance</label>
+            <input type="text" wicket:id="distance" id="distance"/>
+          </li>
+          <li>
+            <label for="maxRunners">Max Runners</label>
+            <input type="text" wicket:id="maxRunners" id="maxRunners"/>
+          </li>
+          <li>
+            <label for="startDateTime">Start Date and Time</label>
+            <input type="text" wicket:id="startDateTime" id="startDateTime"/>
+            (yyyy-MM-dd HH:mm ex: 2009-08-23 13:30)
+          </li>
+        </ul>
+        <input type="submit" value="Create" />
+      </form>
+    </wicket:extend>
+  </body>
+</html>

@@ -16,6 +16,10 @@ public class RaceTrackApplication extends WebApplication {
         service = new RaceTrackServiceImpl();
     }
 
+    public static RaceTrackApplication get() {
+        return (RaceTrackApplication) WebApplication.get();
+    }
+
     public Class getHomePage() {
         return HomePage.class;
     }

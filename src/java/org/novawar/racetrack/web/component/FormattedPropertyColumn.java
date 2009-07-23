@@ -1,4 +1,4 @@
-package org.novawar.racetrack.web;
+package org.novawar.racetrack.web.component;
 
 import java.text.Format;
 import org.apache.wicket.model.IModel;
