@@ -3,12 +3,24 @@
   <head>
     <wicket:head>
       <title>Show Race</title>
+      <style type="text/css">
+        .raceInfoContainer {
+            float: left;
+            width: 400px;
+        }
+
+        .regContainer {
+            padding-top: 14px;
+            margin-left: 400px;
+        }
+      </style>
     </wicket:head>
   </head>
   <body>
     <wicket:extend>
       <h2>Show Race</h2>
       <div wicket:id="feedback"></div>
+      <div class="raceInfoContainer">
         <ul class="fields">
           <li>
             <label for="name">Name:</label>
@@ -38,15 +50,12 @@
             <label>Start Date and Time:</label>
             <span wicket:id="startDateTime"/>
           </li>
-          <li>
-            <label>Registrations:</label>
-            <ul>
-              <li wicket:id="registrations">
-                <span wicket:id="name"/>: <span wicket:id="email"/>
-              </li>
-            </ul>
-          </li>
         </ul>
+      </div>
+      <div class="regContainer">
+        Registrations:
+        <div wicket:id="regPanel">[registrations]</div>
+      </div>
     </wicket:extend>
   </body>
 </html>

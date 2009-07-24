@@ -27,14 +27,7 @@ public final class ShowRacePage extends BasePage {
         add(new NumberLabel("distance", "#0.00"));
         add(new NumberLabel("maxRunners", "#,###"));
         add(new DateLabel("startDateTime", "yyyy-MM-dd HH:mm"));
-
-        add(new PropertyListView<Registration>("registrations"){
-            @Override
-            protected void populateItem(ListItem<Registration> listItem) {
-                listItem.add(new Label("name"));
-                listItem.add(new Label("email"));
-            }
-        });
+        add(new RaceRegistrationListPanel("regPanel", raceId));
     }
 
 
