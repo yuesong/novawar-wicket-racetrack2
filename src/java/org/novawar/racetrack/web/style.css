@@ -42,6 +42,7 @@ h1,h2,h3,h4,h5,h6,h7,h8 {
 
 ul.fields {
     list-style: none;
+    padding-left: 0;
 }
 
 ul.fields li label {
@@ -66,25 +67,25 @@ ul.fields li label {
 }
 
 /* Registration List */
-.registractionList td.id {
+.registrationList td.id {
     text-align: center;
 }
 
-.registractionList td.name {
+.registrationList td.name {
     width: 120px;
 }
 
-.registractionList td.email {
-    width: 250px;
+.registrationList td.email {
+    width: 220px;
 }
 
-.registractionList td.dateOfBirth {
+.registrationList td.dateOfBirth {
     width: 100px;
     text-align: center;
 }
 
-.registractionList td.createdAt {
-    width: 100px;
+.registrationList td.createdAt {
+    width: 120px;
     text-align: center;
 }
 
@@ -119,4 +120,14 @@ ul.fields li label {
 .raceList td.startDateTime {
     width: 150px;
     text-align: center;
+}
+
+.raceInfoContainer {
+    float: left;
+    width: 350px;
+}
+
+.regContainer {
+    padding-top: 14px;
+    margin-left: 350px;
 }
