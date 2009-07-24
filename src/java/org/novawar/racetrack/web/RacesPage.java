@@ -14,7 +14,7 @@ public final class RacesPage extends BasePage {
         add(new Link("newRace"){
             @Override
             public void onClick() {
-                setResponsePage(new EditRacePage());
+                setResponsePage(new CreateRacePage());
             }
         });
     }

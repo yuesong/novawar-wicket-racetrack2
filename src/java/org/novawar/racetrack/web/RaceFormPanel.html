@@ -1,0 +1,41 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:wicket>
+  <body>
+    <wicket:panel>
+      <div wicket:id="feedback">[feedback]</div>
+      <form wicket:id="form">
+        <ul class="fields">
+          <li>
+            <label for="name">Name</label>
+            <input type="text" wicket:id="name" id="name"/>
+          </li>
+          <li>
+            <label for="city">City</label>
+            <input type="text" wicket:id="city" id="city"/>
+          </li>
+          <li>
+            <label for="state">State</label>
+            <select wicket:id="state" id="state"/>
+          </li>
+          <li>
+            <label for="cost">Cost</label>
+            <input type="text" wicket:id="cost" id="cost"/>
+          </li>
+          <li>
+            <label for="distance">Distance</label>
+            <input type="text" wicket:id="distance" id="distance"/>
+          </li>
+          <li>
+            <label for="maxRunners">Max Runners</label>
+            <input type="text" wicket:id="maxRunners" id="maxRunners"/>
+          </li>
+          <li>
+            <label for="startDateTime">Start Date and Time</label>
+            <input type="text" wicket:id="startDateTime" id="startDateTime"/>
+            (yyyy-MM-dd HH:mm ex: 2009-08-23 13:30)
+          </li>
+        </ul>
+      </form>
+    </wicket:panel>
+  </body>
+</html>
