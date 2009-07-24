@@ -6,7 +6,7 @@ import java.util.Date;
  *
  * @author ywang29
  */
-public class Registration {
+public class Registration implements PersistentEntity {
     private Long id;
     private String name;
     private String email;

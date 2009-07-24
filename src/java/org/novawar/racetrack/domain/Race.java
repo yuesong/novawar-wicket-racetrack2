@@ -8,7 +8,7 @@ import java.util.List;
  *
  * @author ywang29
  */
-public class Race {
+public class Race implements PersistentEntity {
     private Long id;
     private String name;
     private String city;
