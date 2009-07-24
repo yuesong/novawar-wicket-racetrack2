@@ -1,6 +1,8 @@
 package org.novawar.racetrack.web;
 import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
+import org.novawar.racetrack.domain.Registration;
 import org.novawar.racetrack.web.component.DateLabel;
 import org.novawar.racetrack.web.model.RegistrationModel;
 
@@ -23,9 +25,17 @@ public final class ShowRegistrationPage extends BasePage {
         add(new Label("address"));
         add(new DateLabel("createdAt", "yyyy-MM-dd HH:mm"));
 
-        add(new Label("race.name"));
-        add(new Label("race.city"));
-        add(new Label("race.state"));
+        Link link = new Link("show"){
+            @Override
+            public void onClick() {
+                final Registration reg = (Registration)getPage().getDefaultModelObject();
+                setResponsePage(new ShowRacePage(reg.getRace().getId()));
+            }
+        };
+        link.add(new Label("race.name"));
+        link.add(new Label("race.city"));
+        link.add(new Label("race.state"));
+        add(link);
     }
 
 }
