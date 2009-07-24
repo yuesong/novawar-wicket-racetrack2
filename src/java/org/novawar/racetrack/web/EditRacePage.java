@@ -12,6 +12,8 @@ public final class EditRacePage extends BasePage {
         RaceFormPanel panel = new RaceFormPanel("raceFormPanel", raceId);
         add(panel);
         add(new SubmitLink("update", panel.getForm()));
+
+        add(new RaceRegistrationListPanel("regPanel", raceId));
     }
 }
 
