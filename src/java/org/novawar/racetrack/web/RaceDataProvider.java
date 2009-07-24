@@ -29,8 +29,7 @@ public class RaceDataProvider extends SortableDataProvider<Race> {
     }
 
     private RaceTrackService getService() {
-        RaceTrackApplication app = (RaceTrackApplication) Application.get();
-        return app.getService();
+        return RaceTrackApplication.get().getService();
     }
 
     private Filter getFilter() {
