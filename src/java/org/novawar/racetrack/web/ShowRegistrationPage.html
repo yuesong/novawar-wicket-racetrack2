@@ -1,0 +1,44 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+  <head>
+    <wicket:head>
+      <title>Show Registration</title>
+    </wicket:head>
+  </head>
+  <body>
+    <wicket:extend>
+      <h2>Show Registration</h2>
+      <div wicket:id="feedback"></div>
+        <ul class="fields">
+          <li>
+            <label for="name">Name:</label>
+            <span wicket:id="name"/>
+          </li>
+          <li>
+            <label for="email">Email:</label>
+            <span wicket:id="email"/>
+          </li>
+          <li>
+            <label for="gender">Gender:</label>
+            <span wicket:id="gender"/>
+          </li>
+          <li>
+            <label for="dateOfBirth">Date of Birth:</label>
+            <span wicket:id="dateOfBirth"/>
+          </li>
+          <li>
+            <label for="address">Address:</label>
+            <span wicket:id="address"/>
+          </li>
+          <li>
+            <label for="createdAt">Created at:</label>
+            <span wicket:id="createdAt"/>
+          </li>
+          <li>
+            <label>Race:</label>
+            <span wicket:id="race.name"/>: <span wicket:id="race.city"/>, <span wicket:id="race.state"/>
+          </li>
+        </ul>
+    </wicket:extend>
+  </body>
+</html>

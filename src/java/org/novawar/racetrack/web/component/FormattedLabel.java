@@ -36,7 +36,13 @@ public class FormattedLabel extends Label {
     @Override
     protected void onComponentTagBody(MarkupStream markupStream, ComponentTag openTag) {
         Object obj = getDefaultModelObject();
-		replaceComponentTagBody(markupStream, openTag, getFormat().format(obj));
+        String value;
+        if (obj != null && getFormat() != null) {
+            value = getFormat().format(obj);
+        } else {
+            value = getDefaultModelObjectAsString();
+        }
+		replaceComponentTagBody(markupStream, openTag, value);
     }
 
 
