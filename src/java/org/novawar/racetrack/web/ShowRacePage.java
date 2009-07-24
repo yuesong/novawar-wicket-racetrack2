@@ -1,5 +1,6 @@
 package org.novawar.racetrack.web;
 import org.apache.wicket.markup.html.basic.Label;
+import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.list.ListItem;
 import org.apache.wicket.markup.html.list.PropertyListView;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
@@ -14,7 +15,7 @@ import org.novawar.racetrack.web.model.RaceModel;
  */
 public final class ShowRacePage extends BasePage {
 
-    public ShowRacePage(Long raceId) {
+    public ShowRacePage(final Long raceId) {
         super(new RaceModel(raceId));
 
         // For displaying created/updated message
@@ -27,6 +28,12 @@ public final class ShowRacePage extends BasePage {
         add(new NumberLabel("distance", "#0.00"));
         add(new NumberLabel("maxRunners", "#,###"));
         add(new DateLabel("startDateTime", "yyyy-MM-dd HH:mm"));
+        add(new Link("edit"){
+            @Override
+            public void onClick() {
+                setResponsePage(new EditRacePage(raceId));
+            }
+        });
         add(new RaceRegistrationListPanel("regPanel", raceId));
     }
 
