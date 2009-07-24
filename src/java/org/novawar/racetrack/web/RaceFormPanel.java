@@ -8,12 +8,11 @@ import org.apache.wicket.markup.html.form.FormComponent;
 import org.apache.wicket.markup.html.form.RequiredTextField;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.markup.html.panel.Panel;
-import org.apache.wicket.model.CompoundPropertyModel;
-import org.apache.wicket.model.LoadableDetachableModel;
 import org.apache.wicket.validation.validator.MinimumValidator;
 import org.apache.wicket.validation.validator.RangeValidator;
 import org.novawar.racetrack.domain.Race;
 import org.novawar.racetrack.service.RaceTrackService;
+import org.novawar.racetrack.web.model.RaceModel;
 
 /**
  *
@@ -21,7 +20,6 @@ import org.novawar.racetrack.service.RaceTrackService;
  */
 public final class RaceFormPanel extends Panel {
 
-    private Long raceId;
     private Form<Race> form;
 
     public RaceFormPanel(String id) {
@@ -30,20 +28,16 @@ public final class RaceFormPanel extends Panel {
 
     public RaceFormPanel(String id, Long raceId) {
         super(id);
-        this.raceId = raceId;
 
         add(new FeedbackPanel("feedback"));
 
-        form = new Form<Race>("form", new FormModel()) {
+        form = new Form<Race>("form", new RaceModel(raceId)) {
             @Override
             protected void onSubmit() {
                 Race race = getModelObject();
+                String key = race.getId() == null ? "created.message" : "updated.message";
                 getService().saveRace(race);
-                if (getRaceId() == null) {
-                    info(getString("created.message", getModel()));
-                } else {
-                    info(getString("updated.message", getModel()));
-                }
+                info(getString(key, getModel()));
                 setResponsePage(new ShowRacePage(race.getId()));
             }
         };
@@ -66,10 +60,6 @@ public final class RaceFormPanel extends Panel {
         });
     }
     
-    public Long getRaceId() {
-        return raceId;
-    }
-
     public Form<Race> getForm() {
         return form;
     }
@@ -78,22 +68,4 @@ public final class RaceFormPanel extends Panel {
         return RaceTrackApplication.get().getService();
     }
 
-    private class FormModel extends CompoundPropertyModel<Race> {
-
-        public FormModel() {
-            super(new LoadableDetachableModel<Race>() {
-                @Override
-                protected Race load() {
-                    if (getRaceId() == null) {
-                        Race race = new Race();
-                        race.setCost(0.0);
-                        race.setMaxRunners(10000);
-                        return race;
-                    } else {
-                        return getService().getRace(getRaceId());
-                    }
-                }
-            });
-        }
-    }
 }

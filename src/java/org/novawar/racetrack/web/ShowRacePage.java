@@ -17,6 +17,7 @@ public final class ShowRacePage extends BasePage {
     public ShowRacePage(Long raceId) {
         super(new RaceModel(raceId));
 
+        // For displaying created/updated message
         add(new FeedbackPanel("feedback"));
 
         add(new Label("name"));
