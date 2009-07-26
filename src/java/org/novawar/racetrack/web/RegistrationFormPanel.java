@@ -11,8 +11,10 @@ import org.apache.wicket.markup.html.form.RequiredTextField;
 import org.apache.wicket.markup.html.form.TextField;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
 import org.apache.wicket.markup.html.panel.Panel;
+import org.apache.wicket.model.IModel;
 import org.apache.wicket.validation.validator.EmailAddressValidator;
 import org.novawar.racetrack.domain.Gender;
+import org.novawar.racetrack.domain.Race;
 import org.novawar.racetrack.domain.Registration;
 import org.novawar.racetrack.service.RaceTrackService;
 import org.novawar.racetrack.web.model.RaceListModel;
@@ -29,16 +31,25 @@ public final class RegistrationFormPanel extends Panel {
     private Form<Registration> form;
 
     public RegistrationFormPanel(String id) {
-        this(id, null);
+        this(id, (Long)null);
     }
 
     public RegistrationFormPanel(String id, Long registrationId) {
         super(id);
+        construct(new RegistrationModel(registrationId));
+    }
 
+    public RegistrationFormPanel(String id, IModel<Race> raceModel) {
+        super(id);
+        construct(new RegistrationModel(raceModel));
+    }
+
+    private void construct(RegistrationModel registrationModel) {
         add(new FeedbackPanel("feedback"));
+        form = new Form<Registration>("form", registrationModel) {
 
-        form = new Form<Registration>("form", new RegistrationModel(registrationId)) {
             private static final long serialVersionUID = 1L;
+
             @Override
             protected void onSubmit() {
                 Registration registration = getModelObject();
@@ -49,28 +60,26 @@ public final class RegistrationFormPanel extends Panel {
             }
         };
         add(form);
-
         form.add(new RequiredTextField("name"));
         form.add(new RequiredTextField("email").add(EmailAddressValidator.getInstance()));
         form.add(new RadioChoice<Gender>("gender", Arrays.asList(Gender.values())));
         form.add(new DateTextField("dateOfBirth", "yyyy-MM-dd"));
         form.add(new TextField("address"));
-        DropDownChoice raceDropDown = new DropDownChoice("race",
-                new RaceListModel(), new ChoiceRenderer("name", "id"));
+        DropDownChoice raceDropDown = new DropDownChoice("race", new RaceListModel(), new ChoiceRenderer("name", "id"));
         raceDropDown.setRequired(true);
-        // Only allow new Registration to choose Race
-        raceDropDown.setEnabled(registrationId == null);
+        // Only allow Race selection if model does not have it.
+        raceDropDown.setEnabled(!registrationModel.hasRace());
         form.add(raceDropDown);
-
         // Set every FormComponent's markup id
         form.visitChildren(FormComponent.class, new Component.IVisitor<FormComponent>() {
+
             public Object component(FormComponent fc) {
                 fc.setMarkupId(fc.getId());
                 return CONTINUE_TRAVERSAL;
             }
         });
     }
-    
+
     public Form<Registration> getForm() {
         return form;
     }
