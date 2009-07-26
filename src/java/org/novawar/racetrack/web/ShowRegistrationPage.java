@@ -2,7 +2,6 @@ package org.novawar.racetrack.web;
 import org.apache.wicket.markup.html.basic.Label;
 import org.apache.wicket.markup.html.link.Link;
 import org.apache.wicket.markup.html.panel.FeedbackPanel;
-import org.apache.wicket.model.IModel;
 import org.novawar.racetrack.domain.Registration;
 import org.novawar.racetrack.web.component.DateLabel;
 import org.novawar.racetrack.web.component.DeleteRegistrationLink;
@@ -17,8 +16,11 @@ public final class ShowRegistrationPage extends BasePage {
 
     private static final long serialVersionUID = 1L;
 
+    private RegistrationModel registrationModel;
+
     public ShowRegistrationPage(Long registrationId) {
-        super(new RegistrationModel(registrationId));
+        super();
+        setDefaultModel(registrationModel = new RegistrationModel(registrationId));
 
         // For displaying created/updated message
         add(new FeedbackPanel("feedback"));
@@ -34,7 +36,7 @@ public final class ShowRegistrationPage extends BasePage {
             private static final long serialVersionUID = 1L;
             @Override
             public void onClick() {
-                final Registration reg = (Registration)getPage().getDefaultModelObject();
+                final Registration reg = registrationModel.getObject();
                 setResponsePage(new ShowRacePage(reg.getRace().getId()));
             }
         };
@@ -44,7 +46,7 @@ public final class ShowRegistrationPage extends BasePage {
         add(link);
 
         add(new EditRegistrationLink("edit", registrationId));
-        add(new DeleteRegistrationLink("delete",(IModel<Registration>) getDefaultModel()));
+        add(new DeleteRegistrationLink("delete", registrationModel));
     }
 
 }
