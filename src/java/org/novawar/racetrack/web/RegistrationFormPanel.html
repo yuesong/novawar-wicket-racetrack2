@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns:wicket>
+  <body>
+    <wicket:panel>
+      <div wicket:id="feedback">[feedback]</div>
+      <form wicket:id="form">
+        <ul class="fields">
+          <li>
+            <label for="name">Name:</label>
+            <input type="text" wicket:id="name" id="name"/>
+          </li>
+          <li>
+            <label for="email">Email:</label>
+            <input type="text" wicket:id="email" id="email"/>
+          </li>
+          <li>
+            <label for="gender" class="genderLabel">Gender:</label>
+            <span wicket:id="gender" id="gender"/>
+          </li>
+          <li>
+            <label for="dateOfBirth">Date of Birth:</label>
+            <input type="text" wicket:id="dateOfBirth" id="dateOfBirth"
+                title="yyyy-MM-dd (ex: 1984-08-07)"/>
+          </li>
+          <li>
+            <label for="address">Address:</label>
+            <input type="text" wicket:id="address" id="address"/>
+          </li>
+          <li>
+            <label for="race">Race:</label>
+            <select type="text" wicket:id="race" id="race"/>
+          </li>
+        </ul>
+      </form>
+    </wicket:panel>
+  </body>
+</html>

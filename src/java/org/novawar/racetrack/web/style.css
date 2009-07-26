@@ -131,3 +131,16 @@ ul.fields li label {
     padding-top: 14px;
     margin-left: 350px;
 }
+
+/* RegistrationFormPanel */
+ul.fields li label.genderLabel {
+    float: left;
+}
+
+ul.fields li span#gender {
+    display: inline-block;
+}
+
+ul.fields li span#gender label {
+    display: inline;
+}
