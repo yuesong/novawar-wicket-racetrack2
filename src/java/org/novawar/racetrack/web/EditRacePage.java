@@ -1,5 +1,6 @@
 package org.novawar.racetrack.web;
 import org.apache.wicket.markup.html.form.SubmitLink;
+import org.novawar.racetrack.web.component.DeleteRaceLink;
 
 /**
  * Page for editing an existing Race.
@@ -8,10 +9,13 @@ import org.apache.wicket.markup.html.form.SubmitLink;
  */
 public final class EditRacePage extends BasePage {
 
+    private static final long serialVersionUID = 1L;
+
     public EditRacePage(Long raceId) {
         RaceFormPanel panel = new RaceFormPanel("raceFormPanel", raceId);
         add(panel);
         add(new SubmitLink("update", panel.getForm()));
+        add(new DeleteRaceLink("delete", panel.getForm().getModel()));
 
         add(new RaceRegistrationListPanel("regPanel", raceId));
     }
