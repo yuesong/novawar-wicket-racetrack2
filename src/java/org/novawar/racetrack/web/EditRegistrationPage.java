@@ -1,5 +1,6 @@
 package org.novawar.racetrack.web;
 import org.apache.wicket.markup.html.form.SubmitLink;
+import org.novawar.racetrack.web.component.DeleteRegistrationLink;
 
 /**
  * Page for editing an existing Registration.
@@ -14,6 +15,7 @@ public final class EditRegistrationPage extends BasePage {
         RegistrationFormPanel panel = new RegistrationFormPanel("registrationFormPanel", registrationId);
         add(panel);
         add(new SubmitLink("update", panel.getForm()));
+        add(new DeleteRegistrationLink("delete", panel.getForm().getModel()));
     }
 }
 
