@@ -43,14 +43,6 @@ public final class RegistrationFormPanel extends Panel {
             protected void onSubmit() {
                 Registration registration = getModelObject();
                 String key = registration.getId() == null ? "created.message" : "updated.message";
-                if (registration.getId() == null) {
-                    key = "created.message";
-                    // New Registration. Add the Registration to the selected Race
-                    registration.getRace().addRegistration(registration);
-                } else {
-                    // Update
-                    key = "update.message";
-                }
                 getService().saveRegistration(registration);
                 info(getString(key, getModel()));
                 setResponsePage(new ShowRegistrationPage(registration.getId()));

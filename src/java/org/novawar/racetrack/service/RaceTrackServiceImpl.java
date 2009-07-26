@@ -75,6 +75,10 @@ public class RaceTrackServiceImpl implements RaceTrackService {
             registrationSeq++;
             registration.setId(registrationSeq);
             registrations.add(registration);
+            Race race = registration.getRace();
+            if (!race.hasRegistration(registration)) {
+                race.addRegistration(registration);
+            }
         }
     }
 
@@ -84,6 +88,7 @@ public class RaceTrackServiceImpl implements RaceTrackService {
     }
 
     public void deleteRegistration(Registration registration) {
+        registration.getRace().removerRegistration(registration);
         registrations.remove(registration);
     }
 

@@ -105,6 +105,15 @@ public class Race implements PersistentEntity {
         registration.setRace(this);
     }
 
+    public void removerRegistration(Registration registration) {
+        getRegistrations().remove(registration);
+        registration.setRace(null);
+    }
+
+    public boolean hasRegistration(Registration registration) {
+        return getRegistrations().contains(registration);
+    }
+
     @Override
     public String toString() {
         return "Race[name=" + getName() + "]";
