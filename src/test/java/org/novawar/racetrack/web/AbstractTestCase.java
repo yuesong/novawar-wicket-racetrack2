@@ -8,7 +8,7 @@ import org.novawar.racetrack.service.RaceTrackService;
  *
  * @author ywang29
  */
-public class AbstractTestCase {
+public abstract class AbstractTestCase {
 
     protected WicketTester tester;
 
