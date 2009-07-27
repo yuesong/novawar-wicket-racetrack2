@@ -1,5 +1,4 @@
-build
-dist
-nbproject
 target
-build.xml
+.settings
+.classpath
+.project

@@ -2,14 +2,13 @@
 Development Environment
 
 - JDK 6 (5 minimum)
-- NetBeans 6.5.1
-- Tomcat 6.0
+- Eclipe Galileo for JEE (install m2eclipse plugin)
 
 Project Creation
 
-- Choose Java Web -> Web Applications
+- Choose Web -> Dynamic Web Project
 - Project Name: racetrack2
-- Server: Tomcat 6.0
-- Frameworks: Wicket 1.4
-  Wicket Application Class: RaceTrackApplication
-  Main Package: org.novawar.racetrack.web
+- Finish project creation wizard
+- Checkout maven branch into the existing project
+- Open Project in Eclipse
+- Right click project and choose Maven -> Enable Dependency Management
